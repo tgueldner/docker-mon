@@ -1,0 +1,4 @@
+python-telegram-handler
+docker
+requests>=2.26.0
+PyYAML

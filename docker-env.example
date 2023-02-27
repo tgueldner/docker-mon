@@ -1,0 +1,16 @@
+{
+    "command": [
+          "nginx",
+           "-g",
+           "daemon off;"
+    ],
+    "ports": {
+        "8080/tcp": "8080"
+    },
+    "volumes": [
+        "/home/dev/nginx:/root"
+    ],
+    "restart_policy": {
+        "Name": "unless-stopped"
+    }
+}
