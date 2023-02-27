@@ -21,6 +21,7 @@ parser.add_argument("-c", "--container", help="Container to check for new image"
 parser.add_argument("-u", "--update", help="Set to perform automatic update", required=False, action='store_true')
 parser.add_argument("-t", "--tag", help="Defines the new version which should be used. Default=latest", required=False, default="latest")
 parser.add_argument("-e", "--envfile", help="ENV file for docker arguments to pass to docker run. See docker-env.example", nargs='?', type=argparse.FileType('r'), required=False)
+parser.add_argument('-l', '--log-level', default='INFO', help='set log level')
 args = parser.parse_args()
 
 
@@ -29,6 +30,7 @@ def setup_logging():
         config = yaml.safe_load(f.read())
         config["handlers"]["telegram"]["token"] = TELEGRAM_TOKEN
         config["handlers"]["telegram"]["chat_id"] = TELEGRAM_CHAT_ID
+        config["root"]["level"] = args.log_level
         logging.config.dictConfig(config)
 
 
