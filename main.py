@@ -24,14 +24,6 @@ parser.add_argument("-e", "--envfile", help="ENV file for docker arguments to pa
 args = parser.parse_args()
 
 
-arguments = {
-    'command': 'start --upgrade',
-    'ports': {'9033/tcp': '9033'},
-    'volumes': ['/home/ironfish/.ironfish:/root/.ironfish'],
-    'restart_policy': {'Name': 'unless-stopped'}
-}
-
-
 def setup_logging():
     with open(logging_yaml_path, "r") as f:
         config = yaml.safe_load(f.read())
