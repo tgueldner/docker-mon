@@ -33,6 +33,7 @@ def setup_logging():
 
 
 def get_image_tag(container):
+    logger.debug("Image of container: {}".format(container.image))
     return container.image.tags[0]
 
 
